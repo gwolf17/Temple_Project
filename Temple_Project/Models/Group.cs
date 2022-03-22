@@ -24,7 +24,6 @@ namespace Temple_Project.Models
         
         public string Phone { get; set; }
 
-        public int AppointmentId { get; set; }  //Primary key in Appointment table
         public Appointment Appointment { get; set; }  //Instance of Appointment model
     }
 }
