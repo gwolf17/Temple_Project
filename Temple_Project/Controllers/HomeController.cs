@@ -8,6 +8,8 @@ namespace Temple_Project.Controllers
 {
     public class HomeController : Controller
     {
-
+        
     }
+
+    
 }
