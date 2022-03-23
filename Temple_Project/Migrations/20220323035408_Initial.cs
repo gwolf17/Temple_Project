@@ -8,7 +8,7 @@ namespace Temple_Project.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Appointment",
+                name: "Appointments",
                 columns: table => new
                 {
                     AppointmentId = table.Column<int>(nullable: false)
@@ -19,7 +19,7 @@ namespace Temple_Project.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Appointment", x => x.AppointmentId);
+                    table.PrimaryKey("PK_Appointments", x => x.AppointmentId);
                 });
 
             migrationBuilder.CreateTable(
@@ -29,7 +29,7 @@ namespace Temple_Project.Migrations
                     GroupId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(nullable: false),
-                    GroupSize = table.Column<int>(maxLength: 15, nullable: false),
+                    GroupSize = table.Column<int>(nullable: false),
                     Email = table.Column<string>(nullable: false),
                     Phone = table.Column<string>(nullable: true),
                     AppointmentId = table.Column<int>(nullable: true)
@@ -38,9 +38,9 @@ namespace Temple_Project.Migrations
                 {
                     table.PrimaryKey("PK_Groups", x => x.GroupId);
                     table.ForeignKey(
-                        name: "FK_Groups_Appointment_AppointmentId",
+                        name: "FK_Groups_Appointments_AppointmentId",
                         column: x => x.AppointmentId,
-                        principalTable: "Appointment",
+                        principalTable: "Appointments",
                         principalColumn: "AppointmentId",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -57,7 +57,7 @@ namespace Temple_Project.Migrations
                 name: "Groups");
 
             migrationBuilder.DropTable(
-                name: "Appointment");
+                name: "Appointments");
         }
     }
 }

@@ -1,0 +1,6 @@
+﻿@model List<Group>;
+
+@foreach(Group g in Model)
+{
+    <p>@g.Name Appointment at @g.Appointment.Date </p>
+} 

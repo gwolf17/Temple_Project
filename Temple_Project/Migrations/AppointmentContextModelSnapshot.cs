@@ -33,7 +33,7 @@ namespace Temple_Project.Migrations
 
                     b.HasKey("AppointmentId");
 
-                    b.ToTable("Appointment");
+                    b.ToTable("Appointments");
                 });
 
             modelBuilder.Entity("Temple_Project.Models.Group", b =>
@@ -50,8 +50,7 @@ namespace Temple_Project.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int>("GroupSize")
-                        .HasColumnType("INTEGER")
-                        .HasMaxLength(15);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
                         .IsRequired()
