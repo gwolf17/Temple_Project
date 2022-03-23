@@ -7,6 +7,8 @@
 <form method="post" asp-controller="Home" asp-action="GroupInfoForm">
     <!--Display validation errors-->
     <div asp-validation-summary="All" class="text-danger"></div>
+    <input asp-for="@Model.GroupId" hidden class="form-control" />
+
 
     <div class="form-group">
         <label asp-for="@Model.Name">Group Name: </label>
@@ -38,7 +40,7 @@
         <input asp-for="@Model.Appointment.Time" disabled class="form-control" />
     </div>
 
-    
+
     @Html.HiddenFor(model => model.Appointment.Date)
     @Html.HiddenFor(model => model.Appointment.Time)
 

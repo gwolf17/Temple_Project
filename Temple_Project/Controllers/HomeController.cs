@@ -32,8 +32,14 @@ namespace Temple_Project.Controllers
             //If the model is valid, add the group and save the changes
             if (ModelState.IsValid)
             {
-
-                context.Add(group);
+                if(group.GroupId == 0)
+                {
+                    context.Add(group);
+                }else
+                {
+                    context.Update(group);
+                }
+                
                 context.SaveChanges();
 
                 return View("Index");
@@ -127,7 +133,9 @@ namespace Temple_Project.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var item = context.Groups.Single(x => x.AppointmentId == id);
+            var item = context.Groups
+                .Include(x => x.Appointment)
+                .Single(x => x.AppointmentId == id);
             return View("GroupInfoForm", item);
         }
         [HttpPost]
