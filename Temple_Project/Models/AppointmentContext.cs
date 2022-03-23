@@ -12,5 +12,6 @@ namespace Temple_Project.Models
         {
         }
         public DbSet<Group> Groups { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
     }
 }
