@@ -34,6 +34,7 @@ namespace Temple_Project.Controllers
             {
                 if(group.GroupId == 0)
                 {
+                    group.Appointment.Available = false;
                     context.Add(group);
                 }else
                 {
