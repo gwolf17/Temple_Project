@@ -9,8 +9,6 @@ namespace Temple_Project.Controllers
 {
     public class HomeController : Controller
     {
-        //
-
         //Group info page
         [HttpGet]
         public IActionResult GroupInfoForm()
@@ -26,6 +24,10 @@ namespace Temple_Project.Controllers
             {
 
             }
+
+        public IActionResult Index()
+        {
+            return View();
         }
     }
 }
