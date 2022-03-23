@@ -16,7 +16,7 @@ namespace Temple_Project.Models
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Please enter the number of group members")]
-        [MaxLength(15)]
+        [Range(1,15)]
         public int GroupSize { get; set; }
 
         [Required(ErrorMessage = "Please enter an email address")]
@@ -24,6 +24,8 @@ namespace Temple_Project.Models
         
         public string Phone { get; set; }
 
+        [Required]
+        public int AppointmentId { get; set; }
         public Appointment Appointment { get; set; }  //Instance of Appointment model
     }
 }

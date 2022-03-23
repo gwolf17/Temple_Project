@@ -1,0 +1,51 @@
+﻿@model List<AppointmentsByDay>
+
+<h1>Sign Up</h1>
+
+<div class="list-group">
+    @*It's pretty challending to show the Appointments by Day and then by Hour, this
+        Would require a change in our data model.'*@
+
+    <div class="accordion" id="accordionExample">
+        @foreach (AppointmentsByDay abd in Model)
+        {
+            <div class="card">
+                <div class="card-header" id="heading-@abd.Index">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#dropdown-@abd.Index" aria-expanded="false" aria-controls="dropdown-@abd.Index">
+                            @abd.Day, @abd.Date.ToString("MMM") @abd.Date.ToString("dd")
+                        </button>
+                    </h2>
+                </div>
+
+                <div id="dropdown-@abd.Index" class="collapse" aria-labelledby="heading-@abd.Index" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="row">
+                            @foreach (Appointment a in abd.Appointments)
+                            {
+                                <div class="col-3">
+                                    <form asp-action="SignUp">
+                                        <input type="hidden" asp-for="@a.Date" />
+                                        <input type="hidden" asp-for="@a.Time" />
+                                        <input type="hidden" asp-for="@a.Available" />
+
+                                        <button type="submit" class="m-1 btn btn-primary float-end">@a.Time</button>
+                                    </form>
+                                </div>
+                                
+                            }
+                        </div>
+                        
+
+                    </div>
+                </div>
+            </div>
+
+            
+        }
+    </div>
+
+
+    
+
+      

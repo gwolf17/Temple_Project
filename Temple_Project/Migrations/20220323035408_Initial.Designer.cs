@@ -9,7 +9,7 @@ using Temple_Project.Models;
 namespace Temple_Project.Migrations
 {
     [DbContext(typeof(AppointmentContext))]
-    [Migration("20220322230600_Initial")]
+    [Migration("20220323035408_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,7 +35,7 @@ namespace Temple_Project.Migrations
 
                     b.HasKey("AppointmentId");
 
-                    b.ToTable("Appointment");
+                    b.ToTable("Appointments");
                 });
 
             modelBuilder.Entity("Temple_Project.Models.Group", b =>
@@ -52,8 +52,7 @@ namespace Temple_Project.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int>("GroupSize")
-                        .HasColumnType("INTEGER")
-                        .HasMaxLength(15);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
                         .IsRequired()
