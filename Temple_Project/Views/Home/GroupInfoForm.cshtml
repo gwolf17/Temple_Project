@@ -1,0 +1,33 @@
+﻿@{
+}
+
+@model Temple_Project.Models.Group
+
+<!--Form for group info-->
+<form method="post" asp-controller="Home" asp-action="">
+    <!--Display validation errors-->
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Name">Group Name: </label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="GroupSize">Group Size: </label>
+        <input asp-for="GroupSize" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email">Email: </label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Phone">Phone Number: </label>
+        <input asp-for="Phone" class="form-control" />
+    </div>
+
+    <!--Submit button-->
+    <input type="submit" value="Submit" class="btn btn-primary" />
+</form>
