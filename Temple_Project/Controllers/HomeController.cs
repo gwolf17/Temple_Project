@@ -78,7 +78,8 @@ namespace Temple_Project.Controllers
                 if (today.Hour < 20 && today.Hour >=8 )
                 {
                     today = today.AddHours(1);
-                } else
+                } 
+                else
                 {
                     int hour = today.Hour > 20 ? 20 - (today.Hour - 20) : today.Hour;
                     
@@ -122,6 +123,44 @@ namespace Temple_Project.Controllers
             var updated = dateTime.AddMinutes(30);
             return new DateTime(updated.Year, updated.Month, updated.Day,
                                  updated.Hour, 0, 0, dateTime.Kind);
+        }
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var item = context.Groups.Single(x => x.AppointmentId == id);
+            return View("GroupInfoForm", item);
+        }
+        [HttpPost]
+        public IActionResult Edit(Group group)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Update(group);
+                context.SaveChanges();
+                return RedirectToAction("Appointments");
+            }
+            else
+            {
+                return View("Edit", group.AppointmentId);
+            }
+        }
+        //[HttpGet]
+        //public IActionResult Delete(int id)
+        //{
+        //    var task = context.Appointments.Single(x => x.AppointmentId == id);
+        //    return View(task);
+        //}
+        //^^
+        public IActionResult Delete(int id)
+        {
+            var appointment = context.Appointments.Single(x => x.AppointmentId == id);
+            var group = context.Groups.Single(x => x.AppointmentId == id);
+            context.Groups.Remove(group);
+            context.Appointments.Remove(appointment);
+
+            context.SaveChanges();
+
+            return RedirectToAction("Appointments");
         }
     }
 }

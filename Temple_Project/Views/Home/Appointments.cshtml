@@ -1,6 +1,32 @@
 ﻿@model List<Group>;
 
-@foreach(Group g in Model)
-{
-    <p>@g.Name Appointment at @g.Appointment.Date </p>
-} 
+<h1>Appointments</h1>
+<table class="table table-sm table-striped table-bordered">
+    <thead>
+        <tr>
+            <th class="text-center">Date</th>
+            <th class="text-center">Group Name</th>
+            <th class="text-center">Group Size</th>
+            <th class="text-center">Email</th>
+            <th class="text-center">Phone</th>
+            <th class="text-center">Time</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (Group g in Model)
+        {
+        <tr>
+            <td>@g.Appointment.Date</td>
+            <td>@g.Name</td>
+            <td>@g.GroupSize</td>
+            <td>@g.Email</td>
+            <td>@g.Phone</td>
+            <td>@g.Appointment.Time</td>
+            <td><a class="btn btn-warning"asp-controller="Home" asp-action="Edit" asp-route-id="@g.AppointmentId">Edit</a></td>
+            <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@g.AppointmentId">Delete</a></td>
+
+        </tr>
+        }
+    </tbody>
+</table> 
