@@ -71,7 +71,7 @@ namespace Temple_Project.Controllers
 
 
             // We can change this to show more hours.
-            int numberOfHoursToShow = 500;
+            int numberOfHoursToShow = 1080;
 
             for (int i = 0; i < numberOfHoursToShow; i++)
             {
