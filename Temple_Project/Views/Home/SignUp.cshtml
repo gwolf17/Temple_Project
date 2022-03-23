@@ -29,7 +29,7 @@
                                         <input type="hidden" asp-for="@a.Time" />
                                         <input type="hidden" asp-for="@a.Available" />
 
-                                        <button type="submit" class="m-1 btn btn-primary float-end">@a.Time</button>
+                                        <button type="submit" disabled="@(a.Available ? false : true)" class="m-1 btn btn-primary float-end">@a.Time</button>
                                     </form>
                                 </div>
                                 

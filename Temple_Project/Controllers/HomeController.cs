@@ -74,7 +74,8 @@ namespace Temple_Project.Controllers
             
             List<AppointmentsByDay> allAppointments = new List<AppointmentsByDay>();
 
-
+            List<Appointment> apps = context.Appointments.ToList();
+            Dictionary<DateTime, Appointment> appsDictionary = apps.ToDictionary(x => x.Date);
 
             // We can change this to show more hours.
             int numberOfHoursToShow = 1080;
@@ -108,7 +109,13 @@ namespace Temple_Project.Controllers
                 Appointment a = new Appointment();
                 a.Date = today;
                 a.Time = today.ToString("hh:mm tt");
-                a.Available = true;
+                if (appsDictionary.ContainsKey(today))
+                {
+                    a.Available = false;
+                } else
+                {
+                    a.Available = true;
+                }
 
                 abd.Appointments.Add(a);
             }
