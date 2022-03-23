@@ -26,7 +26,7 @@ namespace Temple_Project
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddRazorPages();
+
             services.AddDbContext<AppointmentContext>(options =>
             {
                 options.UseSqlite(Configuration["ConnectionStrings:AppointmentDbConnection"]);
@@ -51,8 +51,6 @@ namespace Temple_Project
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();
-
-                endpoints.MapRazorPages();
             });
         }
     }
