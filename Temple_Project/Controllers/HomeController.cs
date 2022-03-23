@@ -75,15 +75,18 @@ namespace Temple_Project.Controllers
             
             List<AppointmentsByDay> allAppointments = new List<AppointmentsByDay>();
 
+            // Query for appointments set in the database
             List<Appointment> apps = context.Appointments.ToList();
+            // Convert that list of appointment to a dictionary
             Dictionary<DateTime, Appointment> appsDictionary = apps.ToDictionary(x => x.Date);
 
             // We can change this to show more hours.
             int numberOfHoursToShow = 1080;
 
+            // Iterate & create an appointment every hour from the current time for 1000 hours.
             for (int i = 0; i < numberOfHoursToShow; i++)
             {
-                if (today.Hour < 20 && today.Hour >=8 )
+                if (today.Hour < 20 && today.Hour >= 8 )
                 {
                     today = today.AddHours(1);
                 } 
@@ -110,6 +113,8 @@ namespace Temple_Project.Controllers
                 Appointment a = new Appointment();
                 a.Date = today;
                 a.Time = today.ToString("hh:mm tt");
+
+                // If the selected hour (represented by the today variable) is already present in the database, then set that hour's availability to false.
                 if (appsDictionary.ContainsKey(today))
                 {
                     a.Available = false;
