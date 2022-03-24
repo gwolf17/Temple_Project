@@ -17,4 +17,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\img\ground_breaking.jpeg" />
+    <Content Remove="wwwroot\img\Layton_Temple.jpg" />
+    <Content Remove="wwwroot\img\full_temple.jpeg" />
+    <Content Remove="wwwroot\img\Welcome.png" />
+  </ItemGroup>
 </Project>
