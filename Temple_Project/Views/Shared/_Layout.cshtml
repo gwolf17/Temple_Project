@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Temple_Project</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -16,14 +16,21 @@
                 <!--Nav bar links-->
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
+                        <!--Logo-->
+                        <li class="navbar-brand">
+                            <a asp-controller="Home" asp-action="Index" class="logo">
+                                <img class="logo" src="~/img/Welcome.png" border="0" />
+                            </a>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Home" asp-action="SignUp">Sign Up</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Home" asp-action="Appointments">View Appointments</a>
+                        </li>
+                        <li class="nav-item" style="float:right">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="SignUp">Sign Up</a>
                         </li>
                     </ul>
                 </div>
@@ -39,9 +46,21 @@
         </main>
 
     </div>
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!--Outside Links for more information-->
+    <footer>
+        <div class="social text-center">
+            <ul class="list-inline">
+                <li class="list-inline-item">
+                    <a href="https://www.churchofjesuschrist.org/?lang=eng">The Church of Jesus Christ of Later-day Saints</a>
+                </li>
+            </ul>
+        </div>
+        
+    </footer>
 </body>
+
 </html>
